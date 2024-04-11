@@ -28,7 +28,7 @@ class Random():
             x = range(a, b + 1)
             self.t = self.t ** 2
             self.t = int(str(self.t)[:28])
-            self.t = int(str(self.t)[:14]) * int(str(self.t)[14:28])
+            self.t = int(str(self.t)[:14]) + int(str(self.t)[14:28])
             y = self.t % len(x)
             if duplicate == False:
                 if x[y] in out:
@@ -107,10 +107,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 target = 100
-out = np.zeros(target)
+out = np.zeros(target+1)
 random = Random()
 for _ in range(1000000):
-  out[random.randint(0, target)] += 1
+    out[random.randint(0, target)] += 1
 
 plt.plot(out)
 plot.show
